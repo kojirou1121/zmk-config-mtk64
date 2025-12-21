@@ -18,10 +18,10 @@ config ZMK_SPLIT
 
 endif
 
-if SHIELD_MTK64_FOOT
+if SHIELD_MTK64_DONGLE
 
 config ZMK_KEYBOARD_NAME
-    default "mtk64_FOOT"
+    default "mtk64"
 
 config ZMK_SPLIT
     default y

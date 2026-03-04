@@ -14,16 +14,16 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: <ZMKのSHAをここに貼る>
+      revision: main
       import: app/west.yml
 
     - name: zmk-pmw3610-driver
       remote: badjeff
-      revision: <PMW3610のSHAをここに貼る>
+      revision: main
 
     - name: zmk-rgbled-widget
       remote: caksoylar
-      revision: <RGBLEDのSHAをここに貼る>
+      revision: main
 
   self:
     path: config

@@ -21,20 +21,20 @@ include:
   - board: xiao_ble//zmk
     shield: mtk64_R rgbled_adapter
     snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_KCONFIG_WARNINGS_AS_ERRORS=n
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_WARN_DEPRECATED=n -DCONFIG_WARN_EXPERIMENTAL=n
     artifact-name: mtk64_R rgbled_adapter-xiao_ble-zmk
 
   - board: xiao_ble//zmk
     shield: mtk64_L rgbled_adapter
-    cmake-args: -DCONFIG_KCONFIG_WARNINGS_AS_ERRORS=n
+    cmake-args: -DCONFIG_WARN_DEPRECATED=n -DCONFIG_WARN_EXPERIMENTAL=n
     artifact-name: mtk64_L rgbled_adapter-xiao_ble-zmk
 
   - board: xiao_ble//zmk
     shield: mtk64_FOOT rgbled_adapter
-    cmake-args: -DCONFIG_KCONFIG_WARNINGS_AS_ERRORS=n
+    cmake-args: -DCONFIG_WARN_DEPRECATED=n -DCONFIG_WARN_EXPERIMENTAL=n
     artifact-name: mtk64_FOOT rgbled_adapter-xiao_ble-zmk
 
   - board: xiao_ble//zmk
     shield: settings_reset
-    cmake-args: -DCONFIG_KCONFIG_WARNINGS_AS_ERRORS=n
+    cmake-args: -DCONFIG_WARN_DEPRECATED=n -DCONFIG_WARN_EXPERIMENTAL=n
     artifact-name: settings_reset-xiao_ble-zmk

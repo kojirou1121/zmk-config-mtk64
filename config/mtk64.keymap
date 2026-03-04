@@ -6,6 +6,7 @@
 #include "keycode_japanese.h"
 
 // スクロール量の設定
+#undef ZMK_POINTING_DEFAULT_SCRL_VAL
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 &mt {

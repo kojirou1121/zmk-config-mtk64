@@ -8,11 +8,19 @@ manifest:
       url-base: https://github.com/caksoylar
 
   projects:
+    # Zephyr を固定（ここが “真の再現性” の核）
+    - name: zephyr
+      remote: zmkfirmware
+      revision: ec36516990d40355238db3049bc1709191f99b4e
+      import: west.yml
+
+    # ZMK 本体を固定
     - name: zmk
       remote: zmkfirmware
       revision: a23aa009d7a07d67fe5609caca7372e16610f238
       import: app/west.yml
 
+    # 追加モジュールも固定
     - name: zmk-pmw3610-driver
       remote: badjeff
       revision: a1a0f35ab6750c8fc72b84ea00add1e5fbaea1e4

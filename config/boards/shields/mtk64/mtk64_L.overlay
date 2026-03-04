@@ -3,17 +3,32 @@
 /*
 &kscan0 {
     gpios
-        = <&xiao_d 1 GPIO_ACTIVE_HIGH> 
-        , <&xiao_d 2 GPIO_ACTIVE_HIGH> 
-        , <&xiao_d 3 GPIO_ACTIVE_HIGH> 
+        = <&xiao_d 1 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 2 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 3 GPIO_ACTIVE_HIGH>
         , <&xiao_d 6 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 7 GPIO_ACTIVE_HIGH> 
-        , <&xiao_d 8 GPIO_ACTIVE_HIGH> 
-        , <&xiao_d 9 GPIO_ACTIVE_HIGH> 	
+        , <&xiao_d 7 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 8 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 9 GPIO_ACTIVE_HIGH>
     ;
 };
 */
 
+/* ★ 左だけ抜けてたので追加：XIAOのUART(Serial)を無効化 */
+&xiao_serial { status = "disabled"; };
+
+/*
+ * ★ チャタ対策（左は強め）
+ * - debounce-press-ms / debounce-release-ms: 押下/離しのチャタ抑制
+ * - debounce-scan-period-ms: 押下中の再スキャン間隔（ノイズ耐性↑）
+ */
+&kscan0 {
+  debounce-press-ms = <15>;
+  debounce-release-ms = <15>;
+  debounce-scan-period-ms = <2>;
+};
+
+/* ここから下は元のまま */
 &left_encoder {
     status = "okay";
 };

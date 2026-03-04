@@ -3,3 +3,13 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.2
+
+- name: Save west revisions
+  run: |
+    west list -f "{name} {revision}\n" | tee west-revisions.txt
+
+- name: Upload west revisions
+  uses: actions/upload-artifact@v4
+  with:
+    name: west-revisions
+    path: west-revisions.txt

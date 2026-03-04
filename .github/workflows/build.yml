@@ -30,9 +30,9 @@ jobs:
 
       - name: Save west revisions (with HEAD SHAs)
         run: |
-          # manifest自体はgitじゃないので(no-git)でOK。重要なのは zmk / zephyr / 追加モジュールのSHAが出ること。
-          west list -f "{name}\t{path}\n" \
-            | while IFS=$'\t' read -r name path; do
+          # west list は「1行=1プロジェクト」なので、余計な \t/\n を使わずスペースで分ける
+          west list -f "{name} {path}" \
+            | while read -r name path; do
                 if git -C "$path" rev-parse HEAD >/dev/null 2>&1; then
                   echo "$name $(git -C "$path" rev-parse HEAD)"
                 else

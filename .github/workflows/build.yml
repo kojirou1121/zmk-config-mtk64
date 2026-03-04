@@ -28,9 +28,17 @@ jobs:
       - name: West update
         run: west update --fetch-opt=--filter=tree:0
 
-      - name: Save west revisions
+      - name: Save west revisions (with HEAD SHAs)
         run: |
-          west list -f "{name} {revision}\n" | tee west-revisions.txt
+          west list -f "{name}\t{path}\n" \
+            | while IFS=$'\t' read -r name path; do
+                if [ -d "${path}/.git" ]; then
+                  echo "${name} $(git -C "${path}" rev-parse HEAD)"
+                else
+                  echo "${name} (no-git-dir:${path})"
+                fi
+              done \
+            | tee west-revisions.txt
 
       - name: Upload west revisions
         uses: actions/upload-artifact@v4

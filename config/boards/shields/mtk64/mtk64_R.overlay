@@ -8,13 +8,13 @@
 /*
 &kscan0 {
     gpios
-        = <&xiao_d 1 GPIO_ACTIVE_HIGH> 
-        , <&xiao_d 2 GPIO_ACTIVE_HIGH> 
-        , <&xiao_d 3 GPIO_ACTIVE_HIGH> 
+        = <&xiao_d 1 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 2 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 3 GPIO_ACTIVE_HIGH>
         , <&xiao_d 6 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 7 GPIO_ACTIVE_HIGH> 
-        , <&xiao_d 8 GPIO_ACTIVE_HIGH> 
-        , <&xiao_d 9 GPIO_ACTIVE_HIGH> 	
+        , <&xiao_d 7 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 8 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 9 GPIO_ACTIVE_HIGH>
     ;
 };
 */
@@ -23,7 +23,7 @@
     status = "okay";
 };
 
-&trackball { 
+&trackball {
     status = "okay";
 };
 
@@ -32,6 +32,13 @@
 };
 
 &xiao_serial { status = "disabled"; };
+
+/* ★ チャタ対策（右は控えめ） */
+&kscan0 {
+  debounce-press-ms = <10>;
+  debounce-release-ms = <10>;
+  debounce-scan-period-ms = <1>;
+};
 
 &{/aliases} {
   led-red = &led0;

@@ -32,7 +32,7 @@
         status = "disabled";
         compatible = "pixart,pmw3610-alt";
         reg = <0>;
-        spi-max-frequency = <2000000>;
+        spi-max-frequency = <1000000>;
         irq-gpios = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         cpi = <1000>;
         swap-xy;
@@ -42,7 +42,7 @@
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
 
-        force-awake;
+        //force-awake;
         /* keep the sensor awake while ZMK activity state is ACTIVE,
            fallback to normal downshift mode after ZMK goes into IDLE / SLEEP mode.
            thus, the sensor would be a `wakeup-source` */

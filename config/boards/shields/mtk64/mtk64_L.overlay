@@ -28,13 +28,20 @@
   debounce-scan-period-ms = <2>;
 };
 
-/* ここから下は元のまま */
+/* ここから下：ロータリーエンコーダー調整 */
 &left_encoder {
     status = "okay";
+    steps = <30>;
 };
 
 &right_encoder {
     status = "okay";
+    steps = <30>;
+};
+
+&sensors {
+    sensors = <&left_encoder &right_encoder>;
+    triggers-per-rotation = <30>;
 };
 
 &{/aliases} {

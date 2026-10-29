@@ -18,14 +18,18 @@
 &xiao_serial { status = "disabled"; };
 
 /*
- * ★ チャタ対策（左は強め）
- * - debounce-press-ms / debounce-release-ms: 押下/離しのチャタ抑制
- * - debounce-scan-period-ms: 押下中の再スキャン間隔（ノイズ耐性↑）
+ * ★ チャタ対策
+ * 以前は 15ms / 15ms / 2ms と強めにしていたが、原因は A/Z の読み取りが
+ * 電池駆動時に不安定だったこと。mtk64_L.conf の
+ * CONFIG_ZMK_KSCAN_CHARLIEPLEX_WAIT_BEFORE_INPUTS で読み取りが安定したので、
+ * ZMK 標準の値に戻した（2026-10-15）。15ms だと押下が遅れ、速い連打では
+ * 離しが成立せず押しっぱなし扱いになっていた。
+ * 二重入力（チャタリング）が出たら 8ms / 8ms あたりに上げる。
  */
 &kscan0 {
-  debounce-press-ms = <15>;
-  debounce-release-ms = <15>;
-  debounce-scan-period-ms = <2>;
+  debounce-press-ms = <5>;
+  debounce-release-ms = <5>;
+  debounce-scan-period-ms = <1>;
 };
 
 /* ここから下：ロータリーエンコーダー調整 */

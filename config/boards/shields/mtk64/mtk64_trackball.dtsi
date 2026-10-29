@@ -35,7 +35,7 @@
         reg = <0>;
         spi-max-frequency = <1000000>;
         irq-gpios = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        cpi = <1000>;
+        cpi = <2200>;
         swap-xy;
         invert-x;
         invert-y;
@@ -84,7 +84,7 @@
         input-processors =
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,
-            <&zip_scroll_scaler 1 64>;
+            <&zip_scroll_scaler 1 24>;
         process-next;
         };
         //input-processors = <&zip_temp_layer 6 5000>;
